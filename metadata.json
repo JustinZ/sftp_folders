@@ -1,0 +1,14 @@
+{
+  "author": "maximzs",
+  "dependencies": [ 
+    {"name":"puppetlabs/stdlib","version_requirement":">=2.3.0 <5.0.0"}],
+  "license": "GNU",
+  "name": "maximzs-sftp_folders",
+  "operatingsystem_support": [],
+  "project_page": "",
+  "requirements": [],
+  "source": "",
+  "summary": "",
+  "tags": [],
+  "version": "0.1.0"
+}
