@@ -3,6 +3,25 @@
 	<name>sftp_folders</name>
 	<comment></comment>
 	<projects>
+		<project>.com_puppetlabs_geppetto_pptp_target</project>
+		<project>accounts</project>
+		<project>ad_da_auth</project>
+		<project>clamav</project>
+		<project>control_r10k</project>
+		<project>hosts</project>
+		<project>nsswitch</project>
+		<project>ntp</project>
+		<project>ossec</project>
+		<project>pam</project>
+		<project>pdxcat-nrpe-2.1.1</project>
+		<project>resolv_conf</project>
+		<project>selinux</project>
+		<project>ssh</project>
+		<project>sssd</project>
+		<project>stdlib</project>
+		<project>subscription_manager</project>
+		<project>sudo</project>
+		<project>timezone</project>
 	</projects>
 	<buildSpec>
 	</buildSpec>
