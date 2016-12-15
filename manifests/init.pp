@@ -20,7 +20,7 @@ class sftp_folders(
     $mode = '0650',
 
   ) {
-notify { "Node DRBD status is $::check_drbd_master": }  
+notify { $::check_drbd_master: }  
 keys($dir_list).each | String $client_env |  
 {
   $dir_list[$client_env][directory].each|String $dir_name |
