@@ -20,29 +20,30 @@ class sftp_folders(
     $mode = '0650',
 
   ) {
-notify { "Node DRBD status is $::drbd_node_status": }  
-keys($dir_list).each | String $client_env |  
-{
-  $dir_list[$client_env][directory].each|String $dir_name |
-  {
-    file {$dir_name :
-      path => $dir_name,
-      ensure => $ensure,
-      owner => $dir_list[$client_env][owner],
-      group => $group,
-      mode => $mode,    
-  }
- 
-  $parent = regsubst($dir_name, '/[^/]*/?$', '')
-  if ($parent != $dir_name) and ($parent != '') {
-    exec { "create parent directory $parent for $dir_name":
-      # mode? uid/gid?  you decide...
-      command => "/bin/mkdir -p $parent",
-      creates => "$parent",
-      before => File[$dir_name]
-    }
-   }
-  }
- }
+if $::drbd_node_status == 'Primary' {
+	keys($dir_list).each | String $client_env |  
+	{
+	  $dir_list[$client_env][directory].each|String $dir_name |
+	  {
+	    file {$dir_name :
+	      path => $dir_name,
+	      ensure => $ensure,
+	      owner => $dir_list[$client_env][owner],
+	      group => $group,
+	      mode => $mode,    
+	  }
+	 
+	  $parent = regsubst($dir_name, '/[^/]*/?$', '')
+	  if ($parent != $dir_name) and ($parent != '') {
+	    exec { "create parent directory $parent for $dir_name":
+	      # mode? uid/gid?  you decide...
+	      command => "/bin/mkdir -p $parent",
+	      creates => "$parent",
+	      before => File[$dir_name]
+	    }
+	   }
+	  }
+	 }
+	} 
 }
 
