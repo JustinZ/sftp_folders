@@ -44,6 +44,8 @@ if $::drbd_node_status == 'Primary' {
 	   }
 	  }
 	 }
-	} 
+	}
+else {
+  notify {"this is not primary node, not creating DRBD folders":}	 
 }
 
