@@ -38,7 +38,7 @@ if $::drbd_node_status == 'Primary' {
 	  if ($parent != $dir_name) and ($parent != '') {
 	    exec { "create parent directory $parent for $dir_name":
 	      # mode? uid/gid?  you decide...
-	      command => "/bin/mkdir -p $parent; /bin/chmod 755 $parent",
+	      command => "/bin/mkdir -m 755 -p $parent;",
 	      creates => "$parent",
 	      before => File[$dir_name]
 	    }
