@@ -39,7 +39,7 @@ if $::drbd_node_status == 'Primary' {
 	    exec { "create parent directory $parent for $dir_name":
 	      # mode? uid/gid?  you decide...
 	      command => "/bin/mkdir -m 755 -p $parent",
-        notify {"$parent"},
+        notify {"$parent"}
 	      creates => "$parent",
 	      before => File[$dir_name],
 	    }
