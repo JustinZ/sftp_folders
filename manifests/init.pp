@@ -20,8 +20,8 @@ class sftp_folders(
     $mode = '0650',
 
   ) {
-if $::drbd_node_status == 'Primary' {
-  notify {"this is primary node, creating sftp folders":}
+#if $::drbd_node_status == 'Primary' {
+#  notify {"this is primary node, creating sftp folders":}
 	keys($dir_list).each | String $client_env |  
 	{
 	  $dir_list[$client_env][directory].each|String $dir_name |
@@ -46,7 +46,7 @@ if $::drbd_node_status == 'Primary' {
 	  }
 	 }
 	}
-else {
-  notify {"this is not primary node, not creating DRBD folders":}	 
-  }
-}
+#else {
+#  notify {"this is not primary node, not creating DRBD folders":}	 
+#  }
+#}
